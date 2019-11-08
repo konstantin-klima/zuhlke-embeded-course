@@ -1,0 +1,9 @@
+Za make koristiti sledecu komandu (cross-compile)
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
+
+
+-b 115200 - brzina transfera preko serijskog
+
+picocom -b 115200 /dev/ttyUSB0
+u: root
+p: root
