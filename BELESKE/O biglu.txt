@@ -1,0 +1,8 @@
+/nfs - virutelni filesystem
+/var/lib/tftpboot - lokacija za kernel image file
+
+Mountovati debugfs
+mount -t debugfs  nodev /sys/kernel/debug
+
+Za dobijanje liste pinova 
+cat /sys/kernel/debug/pinctrl/44e10800.pinmux/pins
