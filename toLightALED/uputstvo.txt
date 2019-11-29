@@ -1,0 +1,30 @@
+cd sys/class/gpio
+echo "49" > export
+cd gpio49
+echo "out" > direction
+echo 1 > value
+
+
+Za reistrovanje GPIO-a pri stablu uredjaja
+/buildroot/output/build/linux-4.13/arch/arm/boot/dts
+ vim am335x-bone-common.dtsi  //Zajednicko stablo za sve BB ploce
+
+ Dodati novi LED block
+
+ Dodati multipleksiranje za LED
+
+ Izbildati jezgro sa:
+ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make
+
+ Kopirati am335x-boneblack.dtb u /var/lib/tftpboot/dtbs
+          ^ iskompiliran binary       ^lokacija odakle s bootuje jegro:w
+ 
+ Na biglu:
+cd /lib/modules/4.13.0/kernel/drivers/leds
+Ucitavanje drajvera:
+insmod led-class.ko 
+insmod leds-gpio.ko
+
+Sad se pojavljue LED direktorijum po /sys/class/
+U njemu cd u novu diodu, i moze se palite sa
+echo 1 > brightness
