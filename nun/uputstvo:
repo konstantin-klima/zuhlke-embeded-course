@@ -1,9 +1,9 @@
     _
-1 o 2 o o
-3 o 4 o o
+a o c o o
+b o d o o
 
-1- u port 3
-3 - u port 1 
+a- u port 3
+b - u port 1 
 
-2 u port 18
-4 u port 17
+c u port 18
+d u port 17
