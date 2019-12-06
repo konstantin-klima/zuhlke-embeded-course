@@ -1,0 +1,23 @@
+#include "am335x-boneblack.dts"
+
+&i2c1 {
+	status = "okay";
+	clock-frequency = <100000>;
+
+	pinctrl-names = "default";
+	pincrtl-0 = <&i2c1_pins>;
+
+	nunchuk: nunchuk@52 {
+		compatible = "nunchuk, wiimote-extension";
+		reg = <0x52>;
+	};
+};
+
+&am33xx_pinmux {
+	i2c1_pins: pinmux_i2c1_pins {
+		pinctrl-single,pins = <
+			AM33XX_IOPAD(0x958, PIN_INPUT_PULLUP | MUX_MODE2)
+			AM33XX_IOPAD(0x95c, PIN_INPUT_PULLUP | MUX_MODE2)
+		>;
+	};
+};
